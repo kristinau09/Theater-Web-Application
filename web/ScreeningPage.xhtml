@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Select Time For Movie</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style type="text/css">
+           span {
+            text-align: center;
+          }
+         table.people {
+            border-collapse: collapse;
+            width: 100%;
+          }
+
+         table.people th, td {
+            text-align: left;
+            padding: 8px;
+          }
+
+         table.people tr:nth-child(even){background-color: #f2f2f2}
+
+         table.people th {
+            background-color: #4CAF50;
+            color: white;
+          }
+          input[type=submit] {
+                width: 20%;
+                background-color: #008CBA;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              }
+
+                input[type=submit]:hover {
+                  background-color: #0086b3;
+                }
+                a:link, a:visited {
+                        background-color: #f44336;
+                        color: white;
+                        padding: 14px 25px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                      }
+
+                      a:hover, a:active {
+                        background-color: red;
+                      }
+        </style>
+    </head>
+    <body style="">
+
+        <h:form>
+            <h:outputText style="font-size: 20pt;" value="Please select a time that you prefer"/>
+            <br></br>
+            <h:dataTable styleClass="people" value="#{moviesBean.getInfoForScreenings()}" var="screening">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Room"/>
+                    </f:facet>
+                    <h:outputText value="#{screening.auditorium}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Type"/>
+                    </f:facet>
+                    <h:outputText value="#{screening.screen}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Time"/>
+                    </f:facet>
+                    <h:outputText value="#{screening.showtime}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Select" action="#{purchaseBean.showPurchasePage(screening)}" ></h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <hr/>
+            <h:commandButton value="Back to main page" action="index.xhtml"/>
+        </h:form>
+    </body>
+</html>

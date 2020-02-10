@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Order Confirmation</title>
+        <style type="text/css">
+           input[type=submit] {
+                width: 10%;
+                background-color: #008CBA;
+                color: white;
+                padding: 14px 9px;
+                margin: 8px 0px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              }
+
+                input[type=submit]:hover {
+                  background-color: #0086b3;
+                }
+                input[type=text], select {
+                  width: 50%;
+                  padding: 12px 20px;
+                  margin: 58px ;
+                  display: inline-block;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  box-sizing: border-box;
+                }
+          
+            img {
+            border-radius: 8px;
+          }
+         table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+
+         table th, td {
+            text-align: left;
+            padding: 8px;
+          }
+
+         table tr:nth-child(even){background-color: #f2f2f2}
+
+         table th {
+            background-color: #4CAF50;
+            color: white;
+          }
+            div.main {
+                text-align: center;
+                margin: auto;
+                width: 80%;
+                border: 3px solid green;
+                padding: 10px;
+            }
+            
+            table.panel {
+                margin: auto;
+            }
+            label {
+                text-decoration: bold;
+            }
+        </style>
+    </h:head>
+    <h:body style="background-image: url(popcorn.jpg)">
+        
+        <h:form>
+        <div style="text-align: center">
+            <h3 style="color:chocolate ">Order Summary</h3>
+            <h:graphicImage width="230px" library="images" name="#{moviesBean.movie.poster}"/>
+            <br> </br>
+            <h:panelGrid class="panel" columns="2">
+               
+                <h:outputLabel value="Movie title"/>
+                <h:outputText value="#{moviesBean.movie.title}"/>
+                
+                <h:outputLabel value="Showtime"/>
+                <h:outputText value="#{purchaseBean.screening.showtime}"/>
+                
+                <h:outputLabel value="Auditorium"/>
+                <h:outputText value="#{purchaseBean.screening.auditorium}"/>
+                
+                <h:outputLabel value="Confirmation"/>
+                <h:outputText value="#{purchaseBean.result}"/>
+            </h:panelGrid>
+            
+            <h3 style="color: chocolate">Thank you for your purchase. Please come back and see us again!.</h3>
+            <hr/>
+            <h:commandButton value="Back to main page" action="index.xhtml"/>
+        </div>
+            
+        </h:form>
+    </h:body>
+</html>
+
